@@ -6,27 +6,41 @@
   <title>Flashcards</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
+  <link href="output.css" rel="stylesheet">
   <link rel= "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
-<body>
-  <div class="container">
-    <div class="flex flex-col w-200 max-w-180 border-1 border-black justify-center p-7 rounded-lg 
-    shadow-lg shadow-cyan-500/50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" id = "add-question"> 
-    <!-- close button -->
-      <i id="close-btn" class="fa-regular fa-rectangle-xmark text-lg text-right cursor-pointer hover:text-red-500 outline-none"></i>
-      <h1 class="text-2xl font-bold text-center mb-8" >Add Flashcard</h1>
-      <p class="pb-2 text-red-600 invisible"id="error">Fields cannot be empty!</p>
-      <!-- question input -->
-      <label class="text-gray-500 font-medium mb-4" for="question">Question:</label>
-      <textarea class="input p-0.5 pl-2 border-1 rounded-md resize-none outline-none focus:border-blue-400 mb-3" id="question" placeholder="Type your question here..." rows="4"></textarea>
-      <!-- answer input -->
-      <label class="text-gray-500 font-medium mb-4" for="answer">Answer:</label>
-      <textarea class="input p-0.5 pl-2 border-1 rounded-md resize-none outline-none focus:border-blue-400 mb-3" id="answer" placeholder="Type your answer here..." rows="2"></textarea>
-      <!-- save button -->
-      <button class= "text-md font-medium text-white p-4 rounded-md bg-blue-500 cursor-pointer" id="save-btn">Save</button>    
+<body class="min-h-screen">
+  
+  <header class="flex justify-between p-5 items-center border-2 h-[20%] w-full"> 
+    <a class="" href="/">
+      <img class="max-h-full max-w-[6em] object-contain" src="../assets/flash-cards.png" alt="logo"/>
+    </a>
+    <h1 class="text-4xl font-bold">Flashcards</h1>
+    <button class="text-md font-medium rounded-md bg-blue-500 cursor-pointer text-white p-4" id="newcard-btn">New Flashcard</button>
+  </header>
+
+  
+    <div class="hidden fixed inset-0 items-center justify-center bg-black/80 transition-all ease-in-out" id="modal">
+      <div class="flex bg-white flex-col w-200 max-w-180 border-1 border-black justify-center p-7 rounded-lg 
+      shadow-lg shadow-cyan-500/50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" id = "add-question"> 
+      <!-- close button -->
+        <i id="close-btn" class="fa-regular fa-rectangle-xmark text-lg text-right cursor-pointer hover:text-red-500 outline-none"></i>
+        <h1 class="text-2xl font-bold text-center mb-8" >Add Flashcard</h1>
+        <!-- error message -->
+        <div class="inline-flex">
+          <span class="pb-1 text-red-600 text-left hidden"id="error">Fields cannot be empty!</span>
+          <span class="pb-1 text-green-500 text-right hidden" id="saved">Flashcard saved!</span>
+        </div>
+        <!-- question input -->
+        <label class="text-gray-500 font-medium mb-4" for="question">Question:</label>
+        <textarea class="input p-0.5 pl-2 border-1 rounded-md resize-none outline-none focus:border-blue-400 mb-3" id="question" placeholder="Type your question here..." rows="4"></textarea>
+        <!-- answer input -->
+        <label class="text-gray-500 font-medium mb-4" for="answer">Answer:</label>
+        <textarea class="input p-0.5 pl-2 border-1 rounded-md resize-none outline-none focus:border-blue-400 mb-3" id="answer" placeholder="Type your answer here..." rows="2"></textarea>
+        <!-- save button -->
+        <button class= "text-md font-medium text-white p-4 rounded-md bg-blue-500 cursor-pointer" id="save-btn">Save</button>    
+      </div>
     </div>
-  </div>
   <!-- script -->
   <script src="script.js"></script>
 </body>
