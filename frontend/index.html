@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+    <title>Flashcards</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="question-container flex flex-col w-200 max-w-120 border-1 border-black justify-center p-3 rounded-lg 
+    shadow-lg shadow-cyan-500/50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+    id = "add-question"> 
+      <h1 class="text-2xl font-bold text-center mb-8" >Add Flashcard</h1>
+      <label class="text-gray-500 font-medium mb-6" for="question">Question:</label>
+      <textarea class="input p-0.5 pl-2 border-1 rounded-md resize-none" id="question" placeholder="Type your question here..." rows="4"></textarea>
+      <label for="answer">Answer:</label>
+      <textarea class="input" id="answer" placeholder="Type your answer here..." rows="2"></textarea>
+      <button id="save-btn">Save</button>
+  </div>
+</div>
+</body>
+</html>
