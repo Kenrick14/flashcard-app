@@ -1,23 +1,33 @@
+<!-- https://www.youtube.com/watch?v=mizkwuCqFsc&t=1536s -->
+
 <!doctype html>
 <html>
 <head>
-    <title>Flashcards</title>
+  <title>Flashcards</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./output.css" rel="stylesheet">
+  <link rel= "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
   <div class="container">
-    <div class="question-container flex flex-col w-200 max-w-120 border-1 border-black justify-center p-3 rounded-lg 
-    shadow-lg shadow-cyan-500/50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-    id = "add-question"> 
+    <div class="flex flex-col w-200 max-w-180 border-1 border-black justify-center p-7 rounded-lg 
+    shadow-lg shadow-cyan-500/50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" id = "add-question"> 
+    <!-- close button -->
+      <i id="close-btn" class="fa-regular fa-rectangle-xmark text-lg text-right cursor-pointer hover:text-red-500 outline-none"></i>
       <h1 class="text-2xl font-bold text-center mb-8" >Add Flashcard</h1>
-      <label class="text-gray-500 font-medium mb-6" for="question">Question:</label>
-      <textarea class="input p-0.5 pl-2 border-1 rounded-md resize-none" id="question" placeholder="Type your question here..." rows="4"></textarea>
-      <label for="answer">Answer:</label>
-      <textarea class="input" id="answer" placeholder="Type your answer here..." rows="2"></textarea>
-      <button id="save-btn">Save</button>
+      <p class="pb-2 text-red-600 invisible"id="error">Fields cannot be empty!</p>
+      <!-- question input -->
+      <label class="text-gray-500 font-medium mb-4" for="question">Question:</label>
+      <textarea class="input p-0.5 pl-2 border-1 rounded-md resize-none outline-none focus:border-blue-400 mb-3" id="question" placeholder="Type your question here..." rows="4"></textarea>
+      <!-- answer input -->
+      <label class="text-gray-500 font-medium mb-4" for="answer">Answer:</label>
+      <textarea class="input p-0.5 pl-2 border-1 rounded-md resize-none outline-none focus:border-blue-400 mb-3" id="answer" placeholder="Type your answer here..." rows="2"></textarea>
+      <!-- save button -->
+      <button class= "text-md font-medium text-white p-4 rounded-md bg-blue-500 cursor-pointer" id="save-btn">Save</button>    
+    </div>
   </div>
-</div>
+  <!-- script -->
+  <script src="script.js"></script>
 </body>
 </html>
