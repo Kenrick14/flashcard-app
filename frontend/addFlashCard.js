@@ -8,6 +8,7 @@ const savedMessage = document.getElementById("saved");
 const closeButton = document.getElementById("close-btn");
 const newCard = document.getElementById("newcard-btn");
 const flashcard = document.getElementById("modal");
+const otherSubject = document.getElementById("other-sub");
 
 closeButton.addEventListener("click", (() => {
     flashcard.classList.remove("flex");
@@ -39,30 +40,50 @@ cardButton.addEventListener("click", (async () => {
         errorMessage.classList.add("hidden");
         question.value = "";
         answer.value = "";
+        //otherSubject.value = "";
     }
 }));
 
 
 const subjects = document.getElementById("subjects");
-const subs = ["Math", "English", "History", "Engish", "Kenrick"];
-let selectedSubjects = [];
+const subs = ["Math", "English", "History", "Science"];
+let selectedButton = null; // Track the currently selected button
 
 subs.forEach(sub => {
     const button = document.createElement("button");
     button.textContent = sub;
-    button.classList.add("text-md", "font-medium", "text-white", "p-4", "rounded-md", "bg-gray-500", "cursor-pointer", "m-2");
+    button.classList.add("mb-4", "text-md", "font-medium", "text-white", "p-4", "rounded-md", "bg-gray-500", "cursor-pointer", "m-2");
 
     button.addEventListener("click", () => {
-        if (selectedSubjects.includes(sub)) {
-            selectedSubjects = selectedSubjects.filter(s => s !== sub);
-            button.classList.remove("bg-purple-500");
-            button.classList.add("bg-gray-500");
-        } else {
-            selectedSubjects.push(sub);
-            button.classList.remove("bg-gray-500");
-            button.classList.add("bg-purple-500");
-        }
-    });
+        if (selectedButton === button) {
+              // If clicking the same button, re-enable all buttons
+              selectedButton = null;
+              button.classList.remove("bg-purple-500");
+              button.classList.add("bg-gray-500");
+              document.querySelectorAll("#subjects button").forEach(btn => {
+                  btn.disabled = false; // Re-enable all buttons
+                  btn.classList.remove("opacity-50", "cursor-not-allowed");
+              });
+          } else {
+              // Disable all buttons except the clicked one
+              document.querySelectorAll("#subjects button").forEach(btn => {
+                  if (btn !== button) {
+                      btn.disabled = true;
+                      btn.classList.add("opacity-50", "cursor-not-allowed");
+                      //otherSubject.add("opacity-50", "disabled");
+                  }
+              });
+  
+              // Mark this button as selected
+              if (selectedButton) {
+                  selectedButton.classList.remove("bg-purple-500");
+                  selectedButton.classList.add("bg-gray-500");
+              }
+              selectedButton = button;
+              button.classList.remove("bg-gray-500");
+              button.classList.add("bg-purple-500");
+          }
+      });
 
     subjects.appendChild(button);
 });

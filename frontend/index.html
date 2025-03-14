@@ -6,14 +6,14 @@
   <title>Flashcards</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="output.css" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
   <link rel= "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body class="min-h-screen">
   
   <header class="flex justify-between p-5 items-center border-2 h-[20%] w-full"> 
     <a class="" href="/">
-      <img class="max-h-full max-w-[6em] object-contain" src="../assets/flash-cards.png" alt="logo"/>
+      <img class="max-h-[3em] max-w-[6em] object-contain" src="../assets/flash-cards.png" alt="logo"/>
     </a>
     <h1 class="text-4xl font-bold">Flashcards</h1>
     <button class="text-md font-medium rounded-md bg-blue-500 cursor-pointer text-white p-4" id="newcard-btn">New Flashcard</button>
@@ -40,8 +40,11 @@
         <label class="text-gray-500 font-medium mb-4" for="answer">Answer:</label>
         <textarea class="input p-0.5 pl-2 border-1 rounded-md resize-none outline-none focus:border-blue-400 mb-3" id="answer" placeholder="Type your answer here..." rows="2"></textarea>
         <!-- save button -->
-         <div id = "subjects">
+         <div class= "flex items-center" id = "subjects">
+          
          </div>
+         <label class="text-gray-500 font-medium mb-4 mr-2" id="other">Other:</label>
+        <input class="input p-0.5 pl-2 border-1 rounded-md resize-none outline-none focus:border-blue-400 mb-3" id="other-sub" placeholder="Type your subject here...">
         <button class= "text-md font-medium text-white p-4 rounded-md bg-blue-500 cursor-pointer" id="save-btn">Save</button>    
       </div>
     </div>
