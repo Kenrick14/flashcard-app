@@ -1,3 +1,5 @@
+import * as req from "./apiConnection.js";
+
 const cardButton = document.getElementById("save-btn");
 const question = document.getElementById("question");
 const answer = document.getElementById("answer");
@@ -7,7 +9,7 @@ const closeButton = document.getElementById("close-btn");
 const newCard = document.getElementById("newcard-btn");
 const flashcard = document.getElementById("modal");
 
-closeButton.addEventListener("click", (hideQuestion = () => {
+closeButton.addEventListener("click", (() => {
     flashcard.classList.remove("flex");
     flashcard.classList.add("hidden");
     question.value = "";
@@ -15,7 +17,7 @@ closeButton.addEventListener("click", (hideQuestion = () => {
     errorMessage.classList.add("hidden");
 }))
 
-newCard.addEventListener("click", (showFlashCard = () => {
+newCard.addEventListener("click", (() => {
     flashcard.classList.remove("hidden");
     flashcard.classList.add("flex");
     question.value = "";
@@ -23,36 +25,20 @@ newCard.addEventListener("click", (showFlashCard = () => {
     errorMessage.classList.add("hidden");
 }))
 
-cardButton.addEventListener("click", (saveCard = () => {
-    tempQuestion = question.value.trim();
-    tempAnswer = answer.value.trim();
+cardButton.addEventListener("click", (async () => {
+    let tempQuestion = question.value.trim();
+    let tempAnswer = answer.value.trim();
     if (!tempQuestion || !tempAnswer) {
         errorMessage.classList.remove("hidden");
         return;
     }
     else {
-        makePost();
+        await req.createCard(tempQuestion, tempAnswer);
+        console.log("Card saved");
         savedMessage.classList.remove("hidden");
         errorMessage.classList.add("hidden");
         question.value = "";
         answer.value = "";
-
     }
 }));
 
-function makePost()
-{
-    const postData = {
-        question: question.value,
-        answer: answer.value
-    };
-    
-    fetch("http://127.0.0.1:5000/flashcards/", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(postData)
-    })
-    
-}

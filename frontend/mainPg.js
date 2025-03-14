@@ -1,0 +1,1 @@
+const Subjects = document.getElementById("subjects");

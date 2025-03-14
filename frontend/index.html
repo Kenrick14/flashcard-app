@@ -18,6 +18,8 @@
     <h1 class="text-4xl font-bold">Flashcards</h1>
     <button class="text-md font-medium rounded-md bg-blue-500 cursor-pointer text-white p-4" id="newcard-btn">New Flashcard</button>
   </header>
+  
+  <div id="topics"></div>
 
   
     <div class="hidden fixed inset-0 items-center justify-center bg-black/80 transition-all ease-in-out" id="modal">
@@ -38,10 +40,14 @@
         <label class="text-gray-500 font-medium mb-4" for="answer">Answer:</label>
         <textarea class="input p-0.5 pl-2 border-1 rounded-md resize-none outline-none focus:border-blue-400 mb-3" id="answer" placeholder="Type your answer here..." rows="2"></textarea>
         <!-- save button -->
+         <div id = "subjects">
+          <button class="text-md font-medium text-white p-4 rounded-md bg-blue-500 cursor-pointer">Sub</button>
+         </div>
         <button class= "text-md font-medium text-white p-4 rounded-md bg-blue-500 cursor-pointer" id="save-btn">Save</button>    
       </div>
     </div>
   <!-- script -->
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
+  <script type="module" src="mainPg.js"></script>
 </body>
 </html>

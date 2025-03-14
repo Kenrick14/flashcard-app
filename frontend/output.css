@@ -1,4 +1,4 @@
-/*! tailwindcss v4.0.13 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.0.14 | MIT License | https://tailwindcss.com */
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -247,14 +247,8 @@
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
-  .top-1 {
-    top: calc(var(--spacing) * 1);
-  }
   .top-1\/2 {
     top: calc(1/2 * 100%);
-  }
-  .left-1 {
-    left: calc(var(--spacing) * 1);
   }
   .left-1\/2 {
     left: calc(1/2 * 100%);
@@ -466,41 +460,8 @@
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
-  .h-6 {
-    height: calc(var(--spacing) * 6);
-  }
-  .h-\[5\%\] {
-    height: 5%;
-  }
-  .h-\[9em\] {
-    height: 9em;
-  }
-  .h-\[12\] {
-    height: 12;
-  }
-  .h-\[12px\] {
-    height: 12px;
-  }
   .h-\[20\%\] {
     height: 20%;
-  }
-  .h-\[40px\] {
-    height: 40px;
-  }
-  .h-\[50\%\] {
-    height: 50%;
-  }
-  .h-\[60px\] {
-    height: 60px;
-  }
-  .h-\[200px\] {
-    height: 200px;
-  }
-  .h-\[400px\] {
-    height: 400px;
-  }
-  .h-full {
-    height: 100%;
   }
   .h-screen {
     height: 100vh;
@@ -517,14 +478,8 @@
   .min-h-screen {
     min-height: 100vh;
   }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
-  }
   .w-1\/2 {
     width: calc(1/2 * 100%);
-  }
-  .w-1\/4 {
-    width: calc(1/4 * 100%);
   }
   .w-200 {
     width: calc(var(--spacing) * 200);
@@ -540,9 +495,6 @@
   }
   .max-w-\[6em\] {
     max-width: 6em;
-  }
-  .max-w-\[10em\] {
-    max-width: 10em;
   }
   .max-w-none {
     max-width: none;
@@ -635,16 +587,8 @@
     --tw-translate-y: 100%;
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
-  .-translate-x-1 {
-    --tw-translate-x: calc(var(--spacing) * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
   .-translate-x-1\/2 {
     --tw-translate-x: calc(calc(1/2 * 100%) * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .-translate-y-1 {
-    --tw-translate-y: calc(var(--spacing) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-y-1\/2 {
@@ -954,13 +898,6 @@
       --tw-space-y-reverse: 1;
     }
   }
-  .space-x-4 {
-    :where(& > :not(:last-child)) {
-      --tw-space-x-reverse: 0;
-      margin-inline-start: calc(calc(var(--spacing) * 4) * var(--tw-space-x-reverse));
-      margin-inline-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-x-reverse)));
-    }
-  }
   .space-x-reverse {
     :where(& > :not(:last-child)) {
       --tw-space-x-reverse: 1;
@@ -1190,20 +1127,8 @@
   .bg-\[var\(--my_variable\)\] {
     background-color: var(--my_variable);
   }
-  .bg-black {
-    background-color: var(--color-black);
-  }
-  .bg-black\/50 {
-    background-color: color-mix(in oklab, var(--color-black) 50%, transparent);
-  }
-  .bg-black\/75 {
-    background-color: color-mix(in oklab, var(--color-black) 75%, transparent);
-  }
   .bg-black\/80 {
     background-color: color-mix(in oklab, var(--color-black) 80%, transparent);
-  }
-  .bg-black\/90 {
-    background-color: color-mix(in oklab, var(--color-black) 90%, transparent);
   }
   .bg-blue-500 {
     background-color: var(--color-blue-500);
@@ -1386,9 +1311,6 @@
   .object-top {
     object-position: top;
   }
-  .p-0 {
-    padding: calc(var(--spacing) * 0);
-  }
   .p-0\.5 {
     padding: calc(var(--spacing) * 0.5);
   }
@@ -1403,9 +1325,6 @@
   }
   .pb-1 {
     padding-bottom: calc(var(--spacing) * 1);
-  }
-  .pb-2 {
-    padding-bottom: calc(var(--spacing) * 2);
   }
   .pl-2 {
     padding-left: calc(var(--spacing) * 2);
@@ -1706,9 +1625,6 @@
   .scheme-only-light {
     color-scheme: only light;
   }
-  .opacity-50 {
-    opacity: 50%;
-  }
   .mix-blend-plus-darker {
     mix-blend-mode: plus-darker;
   }
@@ -1730,9 +1646,6 @@
   .inset-ring {
     --tw-inset-ring-shadow: inset 0 0 0 1px var(--tw-inset-ring-color, currentColor);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
-  .shadow-cyan-500 {
-    --tw-shadow-color: var(--color-cyan-500);
   }
   .shadow-cyan-500\/50 {
     --tw-shadow-color: color-mix(in oklab, var(--color-cyan-500) 50%, transparent);
@@ -1854,10 +1767,6 @@
   .transition-normal {
     transition-behavior: normal;
   }
-  .duration-500 {
-    --tw-duration: 500ms;
-    transition-duration: 500ms;
-  }
   .ease-in {
     --tw-ease: var(--ease-in);
     transition-timing-function: var(--ease-in);
@@ -1944,9 +1853,6 @@
   .outline-solid {
     --tw-outline-style: solid;
     outline-style: solid;
-  }
-  .\[default\:\\u202F\$\{N\(\`\$\{u\}\`\)\}\] {
-    default: \u202F${N(`${u}`)};
   }
   .backface-hidden {
     backface-visibility: hidden;
@@ -2293,10 +2199,6 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-duration {
-  syntax: "*";
-  inherits: false;
-}
 @property --tw-ease {
   syntax: "*";
   inherits: false;
@@ -2314,6 +2216,10 @@
   inherits: false;
 }
 @property --tw-contain-style {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-duration {
   syntax: "*";
   inherits: false;
 }
