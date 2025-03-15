@@ -29,7 +29,7 @@ newCard.addEventListener("click", (() => {
 cardButton.addEventListener("click", (async () => {
     let tempQuestion = question.value.trim();
     let tempAnswer = answer.value.trim();
-    if (!tempQuestion || !tempAnswer) {
+    if (!tempQuestion || !tempAnswer || (!selectedButton && !otherSubject.value.trim())) {
         errorMessage.classList.remove("hidden");
         return;
     }
@@ -40,10 +40,22 @@ cardButton.addEventListener("click", (async () => {
         errorMessage.classList.add("hidden");
         question.value = "";
         answer.value = "";
-        //otherSubject.value = "";
+        otherSubject.value = "";
+        resetCard();
     }
 }));
 
+function resetCard() {
+    document.querySelectorAll("#subjects button").forEach(btn => {
+        btn.disabled = false; // Re-enable all buttons
+        btn.classList.remove("bg-purple-500");
+        btn.classList.add("bg-gray-500");
+        btn.classList.remove("opacity-50", "cursor-not-allowed");
+    });
+    otherSubject.disabled = false;
+    otherSubject.classList.remove("opacity-50", "cursor-not-allowed");
+    otherSubject.placeholder = "Type your subject here...";
+}
 
 const subjects = document.getElementById("subjects");
 const subs = ["Math", "English", "History", "Science"];
@@ -52,7 +64,21 @@ let selectedButton = null; // Track the currently selected button
 subs.forEach(sub => {
     const button = document.createElement("button");
     button.textContent = sub;
-    button.classList.add("mb-4", "text-md", "font-medium", "text-white", "p-4", "rounded-md", "bg-gray-500", "cursor-pointer", "m-2");
+    button.classList.add("mb-4", "text-md", "font-medium", "text-white","p-2", "rounded-md", "bg-gray-500", "cursor-pointer", "m-2");
+
+    otherSubject.addEventListener("input", () => {
+        if (otherSubject.value.trim() !== "") {
+            document.querySelectorAll("#subjects button").forEach(btn => {
+                btn.disabled = true;
+                btn.classList.add("opacity-50", "cursor-not-allowed");
+            });
+        }else{
+            document.querySelectorAll("#subjects button").forEach(btn => {
+                btn.disabled = false;
+                btn.classList.remove("opacity-50", "cursor-not-allowed");
+            });
+        }
+    });
 
     button.addEventListener("click", () => {
         if (selectedButton === button) {
@@ -63,14 +89,19 @@ subs.forEach(sub => {
               document.querySelectorAll("#subjects button").forEach(btn => {
                   btn.disabled = false; // Re-enable all buttons
                   btn.classList.remove("opacity-50", "cursor-not-allowed");
+                  otherSubject.disabled = false;
+                  otherSubject.classList.remove("opacity-50", "cursor-not-allowed");
+                  otherSubject.placeholder = "Type your subject here...";
               });
           } else {
               // Disable all buttons except the clicked one
               document.querySelectorAll("#subjects button").forEach(btn => {
-                  if (btn !== button) {
+                 if (btn !== button) {
                       btn.disabled = true;
                       btn.classList.add("opacity-50", "cursor-not-allowed");
-                      //otherSubject.add("opacity-50", "disabled");
+                      otherSubject.disabled = true;
+                      otherSubject.classList.add("opacity-50", "cursor-not-allowed");
+                      otherSubject.placeholder = "Field disabled";
                   }
               });
   

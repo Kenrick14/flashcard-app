@@ -9,9 +9,9 @@
   <link href="./output.css" rel="stylesheet">
   <link rel= "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen flex flex-col items-center">
   
-  <header class="flex justify-between p-5 items-center border-2 h-[20%] w-full"> 
+  <header class="flex justify-between p-5 items-center border-2 h-[10%] w-full"> 
     <a class="" href="/">
       <img class="max-h-[3em] max-w-[6em] object-contain" src="../assets/flash-cards.png" alt="logo"/>
     </a>
@@ -19,11 +19,11 @@
     <button class="text-md font-medium rounded-md bg-blue-500 cursor-pointer text-white p-4" id="newcard-btn">New Flashcard</button>
   </header>
   
-  <div id="topics"></div>
+  <div id="topics" class="flex flex-wrap w-[70%] maw-w-[70%] gap-8  m-4 h-[80%]"></div>
 
   
     <div class="hidden fixed inset-0 items-center justify-center bg-black/80 transition-all ease-in-out" id="modal">
-      <div class="flex bg-white flex-col w-200 max-w-180 border-1 border-black justify-center p-7 rounded-lg 
+      <div class="flex bg-white flex-col w-[30%] max-w-180 border-1 border-black justify-center p-7 rounded-lg 
       shadow-lg shadow-cyan-500/50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" id = "add-question"> 
       <!-- close button -->
         <i id="close-btn" class="fa-regular fa-rectangle-xmark text-lg text-right cursor-pointer hover:text-red-500 outline-none"></i>
@@ -39,13 +39,14 @@
         <!-- answer input -->
         <label class="text-gray-500 font-medium mb-4" for="answer">Answer:</label>
         <textarea class="input p-0.5 pl-2 border-1 rounded-md resize-none outline-none focus:border-blue-400 mb-3" id="answer" placeholder="Type your answer here..." rows="2"></textarea>
-        <!-- save button -->
-         <div class= "flex items-center" id = "subjects">
+       
+         <div class= "flex flex-wrap items-center justify-center" id = "subjects">
           
          </div>
          <label class="text-gray-500 font-medium mb-4 mr-2" id="other">Other:</label>
         <input class="input p-0.5 pl-2 border-1 rounded-md resize-none outline-none focus:border-blue-400 mb-3" id="other-sub" placeholder="Type your subject here...">
-        <button class= "text-md font-medium text-white p-4 rounded-md bg-blue-500 cursor-pointer" id="save-btn">Save</button>    
+         <!-- save button -->
+        <button class= "text-md font-medium text-white p-4 rounded-md bg-blue-500 cursor-pointer mt-5" id="save-btn">Save</button>    
       </div>
     </div>
   <!-- script -->
