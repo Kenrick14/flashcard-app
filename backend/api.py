@@ -17,19 +17,22 @@ class FlashCardModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question = db.Column(db.String(100), nullable=False)
     answer = db.Column(db.String(100), nullable=False)
+    subject = db.Column(db.String(50), nullable=False)
 
     def __repr__(self):
-        return f'Question: {self.question}\nAnswer: {self.answer}'
+        return f'Question: {self.question}\nAnswer: {self.answer}\nSubject: {self.subject}'
 
 #reqparse is used to parse the request data ( VALIDATE IF THE DATA IS CORRECT)
 flashcard_args = reqparse.RequestParser()
 flashcard_args.add_argument('question', type=str, help='Question is required', required=True)
 flashcard_args.add_argument('answer', type=str, help='Answer is required', required=True)
+flashcard_args.add_argument('subject', type=str, help='Subject is required', required=True)
 
 flashCard_fields = {
     'id': fields.Integer,
     'question': fields.String,
-    'answer': fields.String
+    'answer': fields.String,
+    'subject': fields.String
 }
 
 # Define API Resource
@@ -42,7 +45,7 @@ class FlashCards(Resource):
     @marshal_with(flashCard_fields)
     def post(self):
         args = flashcard_args.parse_args()
-        flashcard = FlashCardModel(question=args['question'], answer=args['answer'])
+        flashcard = FlashCardModel(question=args['question'], answer=args['answer'], subject=args['subject'])
         db.session.add(flashcard)
         db.session.commit()
         flashcards = FlashCardModel.query.all()
@@ -64,6 +67,7 @@ class FlashCard(Resource):
             abort(404, message='Flashcard not found')
         flashcard.question = args['question']
         flashcard.answer = args['answer']
+        flashcard.subject = args['subject']
         db.session.commit()
         return flashcard, 200
     

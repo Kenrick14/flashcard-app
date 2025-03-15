@@ -18,6 +18,7 @@ closeButton.addEventListener("click", (() => {
     errorMessage.classList.add("hidden");
 }))
 
+
 newCard.addEventListener("click", (() => {
     flashcard.classList.remove("hidden");
     flashcard.classList.add("flex");
@@ -29,12 +30,14 @@ newCard.addEventListener("click", (() => {
 cardButton.addEventListener("click", (async () => {
     let tempQuestion = question.value.trim();
     let tempAnswer = answer.value.trim();
-    if (!tempQuestion || !tempAnswer || (!selectedButton && !otherSubject.value.trim())) {
+    let selectedSubject = selectedButton ? selectedButton.textContent : otherSubject.value.trim();
+
+    if (!tempQuestion || !tempAnswer || !selectedSubject) {
         errorMessage.classList.remove("hidden");
         return;
     }
     else {
-        await req.createCard(tempQuestion, tempAnswer);
+        await req.createCard(tempQuestion, tempAnswer, selectedSubject);
         console.log("Card saved");
         savedMessage.classList.remove("hidden");
         errorMessage.classList.add("hidden");
