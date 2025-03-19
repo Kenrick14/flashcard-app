@@ -6,17 +6,22 @@
   <title>Flashcards</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
+  <link href="../output.css" rel="stylesheet">
   <link rel= "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body class="min-h-screen flex flex-col items-center">
   
   <header class="flex justify-between p-5 items-center border-2 h-[10%] w-full"> 
+<<<<<<< HEAD:frontend/pages/index.html
     <a class="" href="/">
-      <img class="max-h-[3em] max-w-[6em] object-contain" src="../assets/flash-cards.png" alt="logo"/>
+      <img class="max-h-[3em] max-w-[6em] object-contain" src="../../assets/flash-cards.png" alt="logo"/>
     </a>
+=======
+    <img class="max-h-[3em] max-w-[6em] object-contain" src="../assets/flash-cards.png" alt="logo"/>
+>>>>>>> 5a97737260b7067f0f4131e41a91457cef110cdd:frontend/index.html
     <h1 class="text-4xl font-bold">Flashcards</h1>
     <button class="text-md font-medium rounded-md bg-blue-500 cursor-pointer text-white p-4" id="newcard-btn">New Flashcard</button>
+    <button class="text-md font-medium rounded-md bg-blue-500 cursor-pointer text-white p-1" id="profile-btn">Profile</button>
   </header>
   
   <div id="topics" class="flex flex-wrap w-[70%] maw-w-[70%] gap-8  m-4 h-[80%]"></div>
@@ -50,7 +55,7 @@
       </div>
     </div>
   <!-- script -->
-  <script type="module" src="addFlashCard.js"></script>
-  <script type="module" src="script.js"></script>
+  <script type="module" src="../navbar/addFlashCard.js"></script>
+  <script type="module" src="../script.js"></script>
 </body>
 </html>

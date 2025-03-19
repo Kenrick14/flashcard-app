@@ -1,8 +1,9 @@
-export async function createCard(question, answer)
+export async function createCard(question, answer, subject)
 {
     const postData = {
-        question: question.value,
-        answer: answer.value
+        question: question,
+        answer: answer,
+        subject: subject
     };
     
     try {
